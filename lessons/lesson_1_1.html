@@ -6,11 +6,13 @@
 </head>
 <body>
 <script type="text/javascript">
-    var euro = 90;
-    var usd = 80;
+    var euro = 90.54;
+    var usd = 80.76;
     var kurs = prompt('Введите рубли');
-    alert("Долларов: "+usd*kurs);
-    alert("Евро: "+euro*kurs);
+    var kurs_euro = euro*kurs;
+    var kurs_usd = usd*kurs;
+    alert("Долларов: "+kurs_usd.toFixed(2));
+    alert("Евро: "+kurs_euro.toFixed(2));
 
 </script>
 </body>
