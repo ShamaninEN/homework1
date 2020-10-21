@@ -9,8 +9,8 @@
     var euro = 90.54;
     var usd = 80.76;
     var kurs = prompt('Введите рубли');
-    var kurs_euro = euro*kurs;
-    var kurs_usd = usd*kurs;
+    var kurs_euro = kurs/euro;
+    var kurs_usd = kurs/usd;
     alert("Долларов: "+kurs_usd.toFixed(2));
     alert("Евро: "+kurs_euro.toFixed(2));
 
