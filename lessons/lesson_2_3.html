@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_2_1</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+
+        var percent = Number(prompt('Введите проценты: '));
+        var rang_one = 0
+        var rang_two = 0
+
+        while (true){
+            var one = Number(prompt('Игрок один отгадай число (выйти q): '));
+            var two = Number(prompt('Игрок два отгадай число (выйти q): '));
+            var rand = Math.random(2)
+            if(one || two == 'q'){
+                break;
+            }
+            if(one == rand){
+                rang_one +=1
+            }
+            if(one == rand){
+                rang_two +=1
+            }
+            alert()
+        }
+    </script>
+</body>
+</html>
