@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_2_1</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var summa = Number(prompt('Введите сумму вклада: '));
+        var percent = Number(prompt('Введите проценты: '));
+        var i = 1
+        while (i != 5){
+            summa = summa + summa*percent/100
+            i +=1
+            alert("Год " +i + ": сумма вклада - "+summa.toFixed(2) +" рублей")
+        }
+    </script>
+</body>
+</html>
