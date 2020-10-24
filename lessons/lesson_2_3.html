@@ -7,25 +7,38 @@
 <body>
     <script type="text/javascript">
 
-
-        var percent = Number(prompt('Введите проценты: '));
         var rang_one = 0
         var rang_two = 0
-
-        while (true){
-            var one = Number(prompt('Игрок один отгадай число (выйти q): '));
-            var two = Number(prompt('Игрок два отгадай число (выйти q): '));
-            var rand = Math.random(2)
-            if(one || two == 'q'){
-                break;
+        i = true
+        function exit_func(x, rang_one, rang_two) {
+            if(x == 'q'){
+                alert("Игрок 1 "+ rang_one + " Игрок 2 "+rang_two);
+                return false
             }
-            if(one == rand){
+            else {
+                return true
+            }
+        }
+
+        while (i){
+            var one = prompt('Игрок один отгадай число от 1 до 9 (выйти q): ');
+            i = exit_func(one, rang_one, rang_two);
+            one = Number(one)
+            var two = Number(prompt('Игрок два отгадай число от 1 до 9 (выйти q): '));
+            i = exit_func(two, rang_one, rang_two);
+            two = Number(two)
+            var rand = Math.random()
+            alert(Math.round(rand*10))
+
+            if(one == Math.round(rand*10)){
+                alert("Отгадал")
                 rang_one +=1
             }
-            if(one == rand){
+            if(one == Math.round(rand*10)){
+                alert("Отгадал")
                 rang_two +=1
             }
-            alert()
+            // alert()
         }
     </script>
 </body>
