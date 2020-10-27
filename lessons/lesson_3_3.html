@@ -18,15 +18,31 @@
           ['замок', 'дверь', 'охранник'],
           ['капуста','лук','колготки']
         ];
+        function checkArray(word, array) {
+            var i = 0;
+            while (i<array.length){
+                if(word == array[i]){
+                    return true;
+                }
+                i++
+            }
+            return false;
+
+        }
         for(let i = 0; i<kvests.length; i++){
             var answer = String(prompt(kvests[i])).toLocaleLowerCase();
-            for(var a = 0; a < answers.length; a++){
-                // alert("Цикл for i: "+i);
-                if(answer == answers[i][a]){
-                    right +=1
-                    alert("Правильный ответ ");
-                    break;
-                }
+            // Заменим функцией проверки в массиве
+            // for(var a = 0; a < answers.length; a++){
+            //     // alert("Цикл for i: "+i);
+            //     if(answer == answers[i][a]){
+            //         right +=1
+            //         alert("Правильный ответ ");
+            //         break;
+            //     }
+            // }
+            if(checkArray(answer, answers[i]) == true){
+                right +=1
+                alert("Правильный ответ ");
             }
 
         }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson3</title>
+</head>
+<body>
+<script type="text/javascript">
+    var i = true;
+    alert("Поставьте мизинец левой руки на букву Ф," +
+        "безымянный палец — на Ы, средний — на В, указательный — на А. " +
+        "Мизинец правой руки на букву Ж, безымянный палец — на Д, " +
+        "средний — на Л, указательный — на О. Запомните расположение пальцев. Повторяйте за мной")
+    var letterFingers = prompt("Введите буквы которые надо потренировать")
+    var numberFingers = prompt("Введите количество пальцев которые надо потренировать мин 1 макс 8, количество пальцев не должно превышать количество букв, проверки нет, работать не будет")
+//функция генерит текст, берет массив склеивает, прибовляет пробел и повторяет заданное число раз
+    function generateText(letters, length) {
+        var text = letters.join("") + " ";
+        return text.repeat(length);
+    }
+    //рандомное число в пределах
+    function getRandomNumber(min, max) {
+        var rundomNumber = Math.floor(Math.random() * (max - min)) + min;
+        return  rundomNumber;
+    }
+    //основная функция проверки введенных значений, перезапускает если неправильно и можно выфти с нее
+    function trainFingers(trainLetters) {
+        var i = true
+        var text = generateText(trainLetters, 10);
+        while (i){
+
+            var userText = prompt("Введите следующую строку (quit - для выхода: "+text);
+            if(userText == text){
+                alert("Все верно");
+                i = false
+                return true;
+            }
+            else if(userText == "quit"){
+                return false;
+            }
+            else{
+                alert("Вы ошиблись Попробуй снова");
+            }
+        }
+    }
+    //проверяем на дубли в массиве
+    function checkArray(word, array) {
+        var i = 0;
+        while (i<array.length){
+            if(word == array[i]){
+                return true;
+            }
+            i++
+        }
+        return false;
+
+    }
+    //создаем массив из тех букв которые хотим потренить. Количество букв соответствует указанным пальцам
+    function generateArray(letters, numb) {
+        var number_letters = []
+        for (var y = 0; y < numb; y++){
+            var number = getRandomNumber(0, letters.length+1)
+            //проверяем что бы не было дублей в массиве букв
+            if(number_letters.length>0){
+                var analog = checkArray(letters[number-1], number_letters);
+                while(analog){
+                    number = getRandomNumber(0, letters.length+1)
+                    analog = checkArray(letters[number-1], number_letters);
+                }
+            }
+            number_letters.push(letters[number-1]);
+        };
+        return number_letters;
+    }
+    var letterArray = letterFingers.split("")
+    while (i){
+        //генерим новый список при удачном прохождении
+        var letterFingersArray = generateArray(letterArray, numberFingers);
+        i = trainFingers(letterFingersArray)
+    }
+
+</script>
+
+</body>
+</html>
