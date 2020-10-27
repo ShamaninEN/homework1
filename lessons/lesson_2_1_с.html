@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_2_1</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var wrong = 0;
+        var right = 0;
+        var kvests = [
+            'Зимой белый, летом серый: ',
+            'Не лает не кусает а в дом не пускает: ',
+            'Сто одежек и все без застежек: '
+        ];
+        var answers = [
+          ['заяц', 'зайченок', 'зайчишка'],
+          ['замок', 'дверь', 'охранник'],
+          ['капуста','лук','колготки']
+        ];
+        for(let i = 0; i<kvests.length; i++){
+            var answer = String(prompt(kvests[i])).toLocaleLowerCase();
+            for(var a = 0; a < answers.length; a++){
+                // alert("Цикл for i: "+i);
+                if(answer == answers[i][a]){
+                    right +=1
+                    alert("Правильный ответ ");
+                    break;
+                }
+            }
+
+        }
+        wrong = kvests.length-right
+
+        alert("Правильных ответов: "+right + "Неправильных ответов: "+wrong)
+
+
+    </script>
+</body>
+</html>

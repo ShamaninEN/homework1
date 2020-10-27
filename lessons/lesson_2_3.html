@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson_2_1</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var rang_one = 0
+        var rang_two = 0
+        i = true
+        function exit_func(x, rang_one, rang_two) {
+            if(x == 'q'){
+                alert("Игрок 1 "+ rang_one + " Игрок 2 "+rang_two);
+                return false
+            }
+            else {
+                return true
+            }
+        }
+
+        while (i){
+            var one = prompt('Игрок один отгадай число от 1 до 9 (выйти q): ');
+            i = exit_func(one, rang_one, rang_two);
+            one = Number(one)
+            var two = Number(prompt('Игрок два отгадай число от 1 до 9 (выйти q): '));
+            i = exit_func(two, rang_one, rang_two);
+            two = Number(two)
+            var rand = Math.random()
+            alert(Math.round(rand*10))
+
+            if(one == Math.round(rand*10)){
+                alert("Отгадал")
+                rang_one +=1
+            }
+            if(one == Math.round(rand*10)){
+                alert("Отгадал")
+                rang_two +=1
+            }
+            // alert()
+        }
+    </script>
+</body>
+</html>
